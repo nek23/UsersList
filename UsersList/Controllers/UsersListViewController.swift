@@ -114,27 +114,10 @@ class UsersListViewController: UITableViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return users.count
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! UserViewCell
-        cell.nameLabel.text = users[indexPath.row].firstName + " " + users[indexPath.row].lastName
-        cell.emailLabel.text = users[indexPath.row].email
-        if users[indexPath.row].userpicURL == "" || users[indexPath.row].userpicURL == nil {
-            cell.avataraImageView.image = UIImage(named: "defaultAvatara")
-        } else {
-            cell.avataraImageView?.kf.setImage(with: URL(string: users[indexPath.row].userpicURL!))
-        }
-        return cell
-    }
-    
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetails" {
             let detailViewController = segue.destination as! DetailViewController
-            let indexPath = tableView.indexPathForSelectedRow!
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
             let selectedUser = users[indexPath.row]
             detailViewController.user = selectedUser
         }
@@ -169,5 +152,23 @@ class UsersListViewController: UITableViewController {
                 }
             }
         }
+    }
+}
+
+extension UsersListViewController {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return users.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! UserViewCell
+        cell.nameLabel.text = users[indexPath.row].firstName + " " + users[indexPath.row].lastName
+        cell.emailLabel.text = users[indexPath.row].email
+        if users[indexPath.row].userpicURL == "" || users[indexPath.row].userpicURL == nil {
+            cell.avataraImageView.image = UIImage(named: "defaultAvatara")
+        } else {
+            cell.avataraImageView?.kf.setImage(with: URL(string: users[indexPath.row].userpicURL!))
+        }
+        return cell
     }
 }
