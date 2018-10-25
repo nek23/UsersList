@@ -16,6 +16,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="Dl5-oH-2nU">
+                            <rect key="frame" x="0.0" y="109" width="375" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </activityIndicatorView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="81" id="0DU-k5-yyq" customClass="UserViewCell" customModule="UsersList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="81"/>
@@ -31,7 +35,7 @@
                                                 <constraint firstAttribute="height" constant="60" id="Mlc-mc-Gns"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgg-Hf-mEX">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgg-Hf-mEX">
                                             <rect key="frame" x="26" y="21" width="269" height="24"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
                                             <nil key="textColor"/>
@@ -70,14 +74,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Пользователи" id="WSC-ol-GjN">
-                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="ik3-0a-jZV">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ypv-v6-6cP">
                             <connections>
-                                <action selector="refreshButtonTapped:" destination="8p6-M8-Z7f" id="yRH-GN-YRK"/>
+                                <segue destination="EbT-1H-t8N" kind="show" id="1Kc-X3-0HF"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ypv-v6-6cP"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="indicator" destination="Dl5-oH-2nU" id="3Rq-FY-9KT"/>
                         <segue destination="eeC-7K-HcL" kind="unwind" unwindAction="unwindToDoListWithSegue:" id="Owd-sf-9jV"/>
                     </connections>
                 </tableViewController>
@@ -260,5 +264,24 @@
             </objects>
             <point key="canvasLocation" x="2858" y="101"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="5dB-ZV-scO">
+            <objects>
+                <navigationController id="EbT-1H-t8N" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="H7s-DY-XEi">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="bRL-Qo-1Y7" kind="relationship" relationship="rootViewController" id="TfR-Vw-u0B"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KY1-Vd-744" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2009" y="596"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Y09-7H-FMx"/>
+    </inferredMetricsTieBreakers>
 </document>

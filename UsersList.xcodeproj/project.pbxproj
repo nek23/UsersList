@@ -10,9 +10,9 @@
 		9171E404BEC61E38306F831E /* Pods_UsersList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D75CC048521D45A5DBDE030 /* Pods_UsersList.framework */; };
 		FA73E230217FC34800E6C60B /* UserViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA73E22F217FC34800E6C60B /* UserViewCell.swift */; };
 		FA73E23221807FE500E6C60B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA73E23121807FE500E6C60B /* DetailViewController.swift */; };
-		FA73E234218132CD00E6C60B /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA73E233218132CD00E6C60B /* AppConstants.swift */; };
 		FA73E23B218133C100E6C60B /* ValidationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA73E23A218133C100E6C60B /* ValidationHelper.swift */; };
 		FA73E23D21814BCC00E6C60B /* BorderHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA73E23C21814BCC00E6C60B /* BorderHelper.swift */; };
+		FA73E23F21821F2000E6C60B /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA73E23E21821F2000E6C60B /* APIManager.swift */; };
 		FA810332217F9D1100956E82 /* UsersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA810331217F9D1100956E82 /* UsersListViewController.swift */; };
 		FAF1E650217F997B0055B050 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF1E64F217F997B0055B050 /* AppDelegate.swift */; };
 		FAF1E655217F997B0055B050 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAF1E653217F997B0055B050 /* Main.storyboard */; };
@@ -27,9 +27,9 @@
 		D5E4C099067E37BB8C7B6919 /* Pods-UsersList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UsersList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UsersList/Pods-UsersList.debug.xcconfig"; sourceTree = "<group>"; };
 		FA73E22F217FC34800E6C60B /* UserViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewCell.swift; sourceTree = "<group>"; };
 		FA73E23121807FE500E6C60B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		FA73E233218132CD00E6C60B /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		FA73E23A218133C100E6C60B /* ValidationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationHelper.swift; sourceTree = "<group>"; };
 		FA73E23C21814BCC00E6C60B /* BorderHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderHelper.swift; sourceTree = "<group>"; };
+		FA73E23E21821F2000E6C60B /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		FA810331217F9D1100956E82 /* UsersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewController.swift; sourceTree = "<group>"; };
 		FAF1E64C217F997B0055B050 /* UsersList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UsersList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAF1E64F217F997B0055B050 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +80,7 @@
 		FA73E2362181330700E6C60B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FA73E23E21821F2000E6C60B /* APIManager.swift */,
 				FA73E22F217FC34800E6C60B /* UserViewCell.swift */,
 				FA73E23121807FE500E6C60B /* DetailViewController.swift */,
 				FA810331217F9D1100956E82 /* UsersListViewController.swift */,
@@ -90,7 +91,6 @@
 		FA73E2372181332300E6C60B /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				FA73E233218132CD00E6C60B /* AppConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -264,7 +264,7 @@
 			files = (
 				FA73E23221807FE500E6C60B /* DetailViewController.swift in Sources */,
 				FA73E23B218133C100E6C60B /* ValidationHelper.swift in Sources */,
-				FA73E234218132CD00E6C60B /* AppConstants.swift in Sources */,
+				FA73E23F21821F2000E6C60B /* APIManager.swift in Sources */,
 				FA73E23D21814BCC00E6C60B /* BorderHelper.swift in Sources */,
 				FA810332217F9D1100956E82 /* UsersListViewController.swift in Sources */,
 				FAF1E662217F99960055B050 /* User.swift in Sources */,

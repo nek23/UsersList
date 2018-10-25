@@ -16,8 +16,8 @@ class DetailViewController: UITableViewController {
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var userpicURLTextField: UITextField!
-    @IBOutlet weak var saveButton: UIBarButtonItem!
     
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
         if let user = user {
@@ -36,35 +36,33 @@ class DetailViewController: UITableViewController {
         let fText = firstNameTextField.text ?? ""
         let lText = lastNameTextField.text ?? ""
         let eText = emailTextField.text ?? ""
-        let aText = userpicURLTextField.text ?? ""
         saveButton.isEnabled = !fText.isEmpty && !lText.isEmpty && eText.isValidEmail()
-        
-        if !fText.isEmpty {
-            firstNameTextField.setBorder(color: .green)
-        } else {
-            firstNameTextField.setBorder(color: .red)
-        }
-        
-        if !lText.isEmpty {
-            lastNameTextField.setBorder(color: .green)
-        } else {
-            lastNameTextField.setBorder(color: .red)
-        }
-        
-        if eText.isValidEmail() {
-            emailTextField.setBorder(color: .green)
-        } else {
-            emailTextField.setBorder(color: .red)
-        }
-        
-        if !aText.isEmpty {
-            userpicURLTextField.setBorder(color: .green)
-        } else {
-            userpicURLTextField.setBorder(color: .clear)
-        }
     }
     
     @IBAction func textEditingChanged(_ sender: UITextField) {
+        let text = sender.text ?? ""
+        switch sender {
+        case firstNameTextField, lastNameTextField:
+            if !text.isEmpty {
+                sender.setBorder(color: .green)
+            } else {
+                sender.setBorder(color: .red)
+            }
+        case emailTextField:
+            if text.isValidEmail() {
+                sender.setBorder(color: .green)
+            } else {
+                sender.setBorder(color: .red)
+            }
+        case userpicURLTextField:
+            if !text.isEmpty {
+                sender.setBorder(color: .green)
+            } else {
+                sender.setBorder(color: .clear)
+            }
+        default:
+            return
+        }
         checkVerification()
     }
     
