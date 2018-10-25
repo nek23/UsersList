@@ -7,6 +7,14 @@
 //
 
 import Foundation
-struct Users {
+
+struct User {
+    let firstName: String
+    let lastName: String
+    let email: String
+    let userpicURL: String?
+    let id: Int?
+    
+    
     
 }
