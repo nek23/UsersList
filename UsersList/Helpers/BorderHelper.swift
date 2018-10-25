@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-extension UIView {
+extension UITextField {
     func setBorder(color: UIColor) {
         self.layer.borderColor = color.cgColor
         self.layer.borderWidth = 1.0

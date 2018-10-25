@@ -17,14 +17,17 @@ class UsersListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let activityIndicator = UIActivityIndicatorView(style: .gray)
+        activityIndicator.center = self.view.center
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
         fetchUsers { (isSuccess, error) in
             if isSuccess {
                     self.tableView.reloadData()
             } else {
-                let alert = UIAlertController(title: "Ошибка", message: error, preferredStyle: .actionSheet)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
+                self.showAlertError(error!)
             }
+            activityIndicator.removeFromSuperview()
         }
     }
     
@@ -34,9 +37,7 @@ class UsersListViewController: UITableViewController {
             if isSuccess {
                     self.tableView.reloadData()
             } else {
-                let alert = UIAlertController(title: "Ошибка", message: error, preferredStyle: .actionSheet)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
+                self.showAlertError(error!)
             }
         }
     }
@@ -118,6 +119,12 @@ class UsersListViewController: UITableViewController {
         
     }
  
+    func showAlertError (_ error: String) {
+        let alert = UIAlertController(title: "Ошибка", message: error, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     @IBAction func unwindToDoList (segue: UIStoryboardSegue){
         guard segue.identifier == "saveUnwind" else { return }
         let sourceViewController = segue.source as! DetailViewController
@@ -128,9 +135,7 @@ class UsersListViewController: UITableViewController {
                         self.users[selectedIndexPath.row] = user
                         self.tableView.reloadRows(at: [selectedIndexPath], with: .none)
                     } else {
-                        let alert = UIAlertController(title: "Ошибка", message: error, preferredStyle: .actionSheet)
-                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-                        self.present(alert, animated: true, completion: nil)
+                        self.showAlertError(error!)
                     }
                 }
             } else {
