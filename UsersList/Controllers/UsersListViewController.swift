@@ -19,10 +19,7 @@ class UsersListViewController: UITableViewController {
         super.viewDidLoad()
         fetchUsers { (isSuccess, error) in
             if isSuccess {
-                DispatchQueue.main.async {
-                    self.refreshControl?.endRefreshing()
                     self.tableView.reloadData()
-                }
             } else {
                 let alert = UIAlertController(title: "Ошибка", message: error, preferredStyle: .actionSheet)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
@@ -35,10 +32,7 @@ class UsersListViewController: UITableViewController {
         users.removeAll()
         fetchUsers { (isSuccess, error) in
             if isSuccess {
-                DispatchQueue.main.async {
-                    self.refreshControl?.endRefreshing()
                     self.tableView.reloadData()
-                }
             } else {
                 let alert = UIAlertController(title: "Ошибка", message: error, preferredStyle: .actionSheet)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
