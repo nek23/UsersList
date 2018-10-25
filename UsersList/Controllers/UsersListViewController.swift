@@ -17,15 +17,37 @@ class UsersListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchUsers()
+        fetchUsers { (isSuccess, error) in
+            if isSuccess {
+                DispatchQueue.main.async {
+                    self.refreshControl?.endRefreshing()
+                    self.tableView.reloadData()
+                }
+            } else {
+                let alert = UIAlertController(title: "Ошибка", message: error, preferredStyle: .actionSheet)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
     }
     
     @IBAction func refreshButtonTapped(_ sender: UIBarButtonItem) {
         users.removeAll()
-        fetchUsers()
+        fetchUsers { (isSuccess, error) in
+            if isSuccess {
+                DispatchQueue.main.async {
+                    self.refreshControl?.endRefreshing()
+                    self.tableView.reloadData()
+                }
+            } else {
+                let alert = UIAlertController(title: "Ошибка", message: error, preferredStyle: .actionSheet)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
     }
     
-    func fetchUsers() {
+    func fetchUsers(completion:@escaping (Bool, String?)->()) {
         guard let url = URL(string: AppConstants.fullURL) else { return }
         Alamofire.request(url, method: .get).validate().responseJSON { response in
             switch response.result {
@@ -41,13 +63,11 @@ class UsersListViewController: UITableViewController {
                     
                     let user = User(firstName: name, lastName: lastName, email: email, userpicURL: userpicURL, id: id)
                     self.users.append(user)
-                }
-                DispatchQueue.main.async {
-                    self.refreshControl?.endRefreshing()
-                    self.tableView.reloadData()
+                    completion(true, nil)
                 }
             case .failure(let error):
                 print(error)
+                completion(false, error.localizedDescription)
             }
         }
     }
@@ -103,7 +123,7 @@ class UsersListViewController: UITableViewController {
         cell.nameLabel.text = users[indexPath.row].firstName + " " + users[indexPath.row].lastName
         cell.emailLabel.text = users[indexPath.row].email
         if users[indexPath.row].userpicURL == "" || users[indexPath.row].userpicURL == nil {
-            cell.avataraImageView.image = UIImage(named: "defaultUserAvatara")
+            cell.avataraImageView.image = UIImage(named: "defaultAvatara")
         } else {
             cell.avataraImageView?.kf.setImage(with: URL(string: users[indexPath.row].userpicURL!))
         }
