@@ -80,7 +80,6 @@
 		FA73E2362181330700E6C60B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				FA73E23E21821F2000E6C60B /* APIManager.swift */,
 				FA73E22F217FC34800E6C60B /* UserViewCell.swift */,
 				FA73E23121807FE500E6C60B /* DetailViewController.swift */,
 				FA810331217F9D1100956E82 /* UsersListViewController.swift */,
@@ -112,6 +111,14 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		FABBE6932182A4990076F523 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				FA73E23E21821F2000E6C60B /* APIManager.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		FAF1E643217F997A0055B050 = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +144,7 @@
 				FAF1E656217F997C0055B050 /* Assets.xcassets */,
 				FAF1E658217F997C0055B050 /* LaunchScreen.storyboard */,
 				FAF1E65B217F997C0055B050 /* Info.plist */,
+				FABBE6932182A4990076F523 /* Service */,
 				FA73E239218133A900E6C60B /* Helpers */,
 				FA73E2382181333C00E6C60B /* Storyboard */,
 				FA73E2362181330700E6C60B /* Controllers */,

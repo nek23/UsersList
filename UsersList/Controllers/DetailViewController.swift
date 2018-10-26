@@ -29,7 +29,6 @@ class DetailViewController: UITableViewController {
         } else {
             navigationItem.title = "Добавить"
         }
-        checkVerification()
     }
     
     func checkVerification() {

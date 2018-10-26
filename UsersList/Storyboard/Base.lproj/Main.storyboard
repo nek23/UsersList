@@ -245,7 +245,7 @@
                                 <segue destination="PEN-Gr-qAq" kind="unwind" unwindAction="unwindToDoListWithSegue:" id="KiO-mh-LJ0"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Сохранить" id="Bjv-pv-poQ">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Сохранить" id="Bjv-pv-poQ">
                             <connections>
                                 <segue destination="PEN-Gr-qAq" kind="unwind" identifier="saveUnwind" unwindAction="unwindToDoListWithSegue:" id="wAU-md-BcP"/>
                             </connections>

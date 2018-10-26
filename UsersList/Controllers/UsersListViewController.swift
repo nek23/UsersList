@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import SwiftyJSON
-import Alamofire
 import Kingfisher
 
 class UsersListViewController: UITableViewController {
@@ -86,8 +84,6 @@ class UsersListViewController: UITableViewController {
         }
         return cell
     }
-    
-    
     
     @IBAction func unwindToDoList (segue: UIStoryboardSegue){
         guard segue.identifier == "saveUnwind" else { return }
